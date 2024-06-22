@@ -68,7 +68,7 @@ const Converter = () => {
 
   return (
     <div className="w-full h-full min-h-screen py-20 flex flex-col items-center bg-black text-white">
-      <h1 className="text-5xl font-bold mb-4 uppercase px-8 text-center pb-8"> <span className='text-[#23d443]'>Spotify</span> Song Downloader</h1>
+      <h1 className="text-5xl font-bold mb-4 uppercase px-8 text-center pb-8"> <span className='text-[#23d443] hover:text-[#30ff5d]'>Spotify</span> Song Downloader</h1>
       <div className="mb-4 w-full flex justify-center px-8 py-8">
         <div className="w-[800px]">
           <input
@@ -92,7 +92,7 @@ const Converter = () => {
           <div className="flex flex-col md:flex-row items-center mb-4 w-full justify-center gap-10">
             <img src={songDetails.coverImage} alt="Cover" className="w-64 h-64 mb-4 md:mb-0 md:mr-4" />
             <div className="text-center md:text-left text-2xl">
-              <p className=' text-3xl mb-4'><strong>Song Name:</strong> {songDetails.songName}</p>
+              <p className=' text-3xl mb-4 text-[#23d443] hover:text-[#30ff5d]'><strong>Song Name:</strong> {songDetails.songName}</p>
               <p><strong>Artist Name:</strong> {songDetails.artistName}</p>
               <p><strong>Publish Date:</strong> {songDetails.publishDate}</p>
               <p><strong>Song Duration:</strong> {songDetails.songDuration}</p>
@@ -101,7 +101,7 @@ const Converter = () => {
           {lyrics && (
             <>
               <p className='text-2xl font-bold pt-8'>Lyrics:</p>
-              <pre className="whitespace-pre-wrap my-4 text-center text-2xl">
+              <pre className="whitespace-pre-wrap my-4 text-center text-1xl">
                 {showFullLyrics ? lyrics : `${lyrics.substring(0, 100)}...`}
               </pre>
               <button
