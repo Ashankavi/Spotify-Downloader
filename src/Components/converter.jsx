@@ -29,7 +29,7 @@ const Converter = () => {
         coverImage: data.album.images[0].url,
       };
       setSongDetails(details);
-      
+
       // Fetch lyrics
       const lyricsResponse = await fetch(`https://api.lyrics.ovh/v1/${details.artistName}/${details.songName}`);
       const lyricsData = await lyricsResponse.json();
@@ -52,7 +52,7 @@ const Converter = () => {
       Lyrics:
       ${lyrics}
     `;
-    
+
     const blob = new Blob([songData], { type: 'text/plain' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -67,7 +67,7 @@ const Converter = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center">
+    <div className="mx-auto p-4 flex flex-col items-center bg-black text-white">
       <h1 className="text-2xl font-bold mb-4">Spotify Song Downloader</h1>
       <div className="mb-4 w-full max-w-md">
         <input
@@ -87,15 +87,19 @@ const Converter = () => {
 
       {songDetails && (
         <div className="border p-4 rounded w-full max-w-md flex flex-col items-center">
-          <img src={songDetails.coverImage} alt="Cover" className="w-32 h-32 mb-4" />
-          <p><strong>Artist Name:</strong> {songDetails.artistName}</p>
-          <p><strong>Song Name:</strong> {songDetails.songName}</p>
-          <p><strong>Publish Date:</strong> {songDetails.publishDate}</p>
-          <p><strong>Song Duration:</strong> {songDetails.songDuration}</p>
+          <div className="flex flex-col md:flex-row items-center mb-4 w-full">
+            <img src={songDetails.coverImage} alt="Cover" className="w-32 h-32 mb-4 md:mb-0 md:mr-4" />
+            <div>
+              <p><strong>Artist Name:</strong> {songDetails.artistName}</p>
+              <p><strong>Song Name:</strong> {songDetails.songName}</p>
+              <p><strong>Publish Date:</strong> {songDetails.publishDate}</p>
+              <p><strong>Song Duration:</strong> {songDetails.songDuration}</p>
+            </div>
+          </div>
           {lyrics && (
             <>
               <p><strong>Lyrics:</strong></p>
-              <pre className="whitespace-pre-wrap text-center">
+              <pre className="whitespace-pre-wrap text-left mb-4">
                 {showFullLyrics ? lyrics : `${lyrics.substring(0, 100)}...`}
               </pre>
               <button
