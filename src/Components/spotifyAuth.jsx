@@ -1,8 +1,8 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const clientId = 'YOUR_SPOTIFY_CLIENT_ID';
-const clientSecret = 'YOUR_SPOTIFY_CLIENT_SECRET';
+const clientId = 'cbc8a8dbbe9f446b9d188753558b8d7c'; // Your actual client ID
+const clientSecret = 'f48773fc12244d53933ffcf1f614abcb'; // Your actual client secret
 const redirectUri = 'http://localhost:3000/callback';
 
 export const getAuthUrl = () => {
