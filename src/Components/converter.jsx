@@ -68,19 +68,19 @@ const Converter = () => {
 
   return (
     <div className="w-full h-full min-h-screen py-20 flex flex-col items-center bg-black text-white">
-      <h1 className="text-5xl font-bold mb-4 uppercase px-8 text-center pb-8">Spotify Song Downloader</h1>
-      <div className="mb-4 w-full flex justify-center px-8">
+      <h1 className="text-5xl font-bold mb-4 uppercase px-8 text-center pb-8"> <span className='text-[#23d443]'>Spotify</span> Song Downloader</h1>
+      <div className="mb-4 w-full flex justify-center px-8 py-8">
         <div className="w-[800px]">
           <input
             type="text"
             value={songLink}
             onChange={(e) => setSongLink(e.target.value)}
             placeholder="Enter Spotify song link"
-            className="w-full rounded-[10px] pl-2 text-black py-2"
+            className="w-full rounded-[10px] pl-2 pr-2 text-black py-2"
           />
           <button
             onClick={fetchSongDetails}
-            className="bg-blue-500 text-white p-2 mt-2 w-full rounded-[10px]"
+            className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-2 w-full rounded-[10px]"
           >
             Search
           </button>
@@ -89,37 +89,37 @@ const Converter = () => {
 
       {songDetails && (
         <div className="w-full max-w-[800px] flex flex-col items-center px-8">
-          <div className="flex flex-col md:flex-row items-center mb-4 w-full justify-center">
+          <div className="flex flex-col md:flex-row items-center mb-4 w-full justify-center gap-10">
             <img src={songDetails.coverImage} alt="Cover" className="w-64 h-64 mb-4 md:mb-0 md:mr-4" />
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left text-2xl">
+              <p className=' text-3xl mb-4'><strong>Song Name:</strong> {songDetails.songName}</p>
               <p><strong>Artist Name:</strong> {songDetails.artistName}</p>
-              <p><strong>Song Name:</strong> {songDetails.songName}</p>
               <p><strong>Publish Date:</strong> {songDetails.publishDate}</p>
               <p><strong>Song Duration:</strong> {songDetails.songDuration}</p>
             </div>
           </div>
           {lyrics && (
             <>
-              <p><strong>Lyrics:</strong></p>
-              <pre className="whitespace-pre-wrap my-4 text-center">
+              <p className='text-2xl font-bold pt-8'>Lyrics:</p>
+              <pre className="whitespace-pre-wrap my-4 text-center text-2xl">
                 {showFullLyrics ? lyrics : `${lyrics.substring(0, 100)}...`}
               </pre>
               <button
                 onClick={handleToggleLyrics}
-                className="bg-gray-500 text-white mt-2 p-2 rounded-[10px]"
+                className="bg-[#334bff] hover:bg-[#45c94c] text-white mt-2 p-2 rounded-[10px]"
               >
                 {showFullLyrics ? 'Show Less' : 'Show More'}
               </button>
             </>
           )}
 
-          <div className="mt-4 w-full">
-            <label htmlFor="quality" className="block mb-2 ">Select Quality:</label>
+          <div className="mt-4 w-full py-8">
+            <label htmlFor="quality" className="block mb-2 text-lg ">Select Quality:</label>
             <select
               id="quality"
               value={quality}
               onChange={(e) => setQuality(e.target.value)}
-              className="w-full text-black py-2 rounded-[10px]"
+              className="w-full text-black pl-2 pr-2 py-2 rounded-[10px]"
             >
               <option value="low">Low Quality</option>
               <option value="normal">Normal Quality</option>
@@ -127,10 +127,10 @@ const Converter = () => {
             </select>
           </div>
 
-          <div className="flex justify-center mt-4 w-full">
+          <div className="flex justify-center w-full">
             <button
               onClick={handleDownload}
-              className="bg-green-500 text-white w-full py-2 rounded-[10px]"
+              className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-2 w-full rounded-[10px]"
             >
               Download
             </button>
