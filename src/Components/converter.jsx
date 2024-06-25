@@ -67,9 +67,9 @@ const Converter = () => {
   };
 
   return (
-    <div className="w-full h-full min-h-screen py-20 flex flex-col items-center bg-black text-white">
-      <h1 className="text-5xl font-bold mb-4 uppercase px-8 text-center pb-8"> <span className='text-[#23d443] hover:text-[#30ff5d]'>Spotify</span> Song Downloader</h1>
-      <div className="mb-4 w-full flex justify-center px-8 py-8">
+    <div className="flex flex-col items-center justify-center w-full h-full min-h-screen py-20 text-white bg-black">
+      <h1 className="px-8 pb-8 mb-4 text-5xl font-bold text-center uppercase"> <span className='text-[#23d443] hover:text-[#30ff5d]'>Spotify</span> Song Downloader</h1>
+      <div className="flex justify-center w-full px-8 py-8 mb-4">
         <div className="w-[800px]">
           <input
             type="text"
@@ -80,7 +80,7 @@ const Converter = () => {
           />
           <button
             onClick={fetchSongDetails}
-            className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-2 w-full rounded-[10px]"
+            className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-4 w-full rounded-[10px]"
           >
             Search
           </button>
@@ -89,9 +89,9 @@ const Converter = () => {
 
       {songDetails && (
         <div className="w-full max-w-[800px] flex flex-col items-center px-8">
-          <div className="flex flex-col md:flex-row items-center mb-4 w-full justify-center gap-10">
+          <div className="flex flex-col items-center justify-center w-full gap-10 mb-4 md:flex-row">
             <img src={songDetails.coverImage} alt="Cover" className="w-64 h-64 mb-4 md:mb-0 md:mr-4" />
-            <div className="text-center md:text-left text-2xl">
+            <div className="text-2xl text-center md:text-left">
               <p className=' text-3xl mb-4 text-[#23d443] hover:text-[#30ff5d]'><strong>Song Name:</strong> {songDetails.songName}</p>
               <p><strong>Artist Name:</strong> {songDetails.artistName}</p>
               <p><strong>Publish Date:</strong> {songDetails.publishDate}</p>
@@ -100,8 +100,8 @@ const Converter = () => {
           </div>
           {lyrics && (
             <>
-              <p className='text-2xl font-bold pt-8'>Lyrics:</p>
-              <pre className="whitespace-pre-wrap my-4 text-center text-1xl">
+              <p className='pt-8 text-2xl font-bold'>Lyrics:</p>
+              <pre className="my-4 text-center whitespace-pre-wrap text-1xl">
                 {showFullLyrics ? lyrics : `${lyrics.substring(0, 100)}...`}
               </pre>
               <button
@@ -113,7 +113,7 @@ const Converter = () => {
             </>
           )}
 
-          <div className="mt-4 w-full py-8">
+          <div className="w-full py-8 mt-4">
             <label htmlFor="quality" className="block mb-2 text-lg ">Select Quality:</label>
             <select
               id="quality"
@@ -130,7 +130,7 @@ const Converter = () => {
           <div className="flex justify-center w-full">
             <button
               onClick={handleDownload}
-              className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-2 w-full rounded-[10px]"
+              className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%  font-bold uppercase text-white p-2 mt-2 w-full  rounded-[10px]"
             >
               Download
             </button>
